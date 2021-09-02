@@ -103,6 +103,11 @@ query($preview: Boolean){
     items{
       year
       make
+      address {
+        line1
+        line2
+        postcode
+      }
     }
   }
 }
