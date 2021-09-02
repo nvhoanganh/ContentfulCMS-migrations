@@ -1,0 +1,230 @@
+@spaceId={{$dotenv SPACEID}}
+
+# access master (prod) using content delivery api key (no preview)
+# using this API key, you can't access content that ARE not published
+###
+
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PRODAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  carCollection(preview: $preview){
+    items{
+      year
+      make
+    }
+  }
+}
+
+{
+  "preview": false
+}
+
+# access master (prod) using content delivery preview api key 
+# using this API key, you can switch between published and not published content (by changing the preview: true)
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  carCollection(preview: $preview){
+    items{
+      year
+      make
+    }
+  }
+}
+
+{
+  "preview": false
+}
+
+# access master (prod) using content delivery preview api key 
+# using this API key, you can switch between published and not published content (by changing the preview: true)
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  carCollection(preview: $preview){
+    items{
+      year
+      make
+    }
+  }
+}
+
+{
+  "preview": true
+}
+
+# we can get 2 content at the same time
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  carCollection(preview: $preview){
+    items{
+      year
+      make
+    }
+  }
+  newContentCollection(preview: $preview){
+    items{
+      test
+      number
+    }
+  }
+}
+
+{
+  "preview": true
+}
+
+# we can access data based on another environment name (we need to enable access here https://app.contentful.com/spaces/{{spaceId}}/api/keys/7oaGyuu2Vnnqe7DWs6ozy0)
+
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/dev
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  carCollection(preview: $preview){
+    items{
+      year
+      make
+    }
+  }
+}
+
+{
+  "preview": true
+}
+
+# if we add new content type to DEV env, then we can access only when we specify env name (this is not visible on the master env)
+# note, we can pull down the system fields too
+# https://www.contentful.com/developers/docs/references/graphql/#/reference/schema-generation/sys-field
+
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/dev
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  addressCollection(preview: $preview){
+    items{
+      line1
+      line2
+      sys {
+        id
+        spaceId
+        environmentId
+        publishedAt
+        firstPublishedAt
+        publishedVersion
+      }
+    }
+  }
+}
+
+{
+  "preview": true
+}
+
+# if we query the same as above but not specifying the env, we get error
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  addressCollection(preview: $preview){
+    items{
+      line1
+      line2
+      sys {
+        id
+        spaceId
+        environmentId
+        publishedAt
+        firstPublishedAt
+        publishedVersion
+      }
+    }
+  }
+}
+
+{
+  "preview": true
+}
+
+# items when first created but not published are in DRAFT state
+# items that are published but changed are in CHANGED state
+
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/dev
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  addressCollection(preview: $preview){
+    items{
+      line1
+      line2
+      sys {
+        id
+        spaceId
+        environmentId
+        publishedAt
+        firstPublishedAt
+        publishedVersion
+      }
+    }
+  }
+}
+
+{
+  "preview": false
+}
+
+# using ENV alias, we can quickly swap prod (master) with another env
+
+###
+POST  https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv PREVIEWAPI}}
+X-REQUEST-TYPE: GraphQL
+
+query($preview: Boolean){
+  addressCollection(preview: $preview){
+    items{
+      line1
+      line2
+      sys {
+        id
+        spaceId
+        environmentId
+        publishedAt
+        firstPublishedAt
+        publishedVersion
+      }
+    }
+  }
+}
+
+{
+  "preview": false
+}
