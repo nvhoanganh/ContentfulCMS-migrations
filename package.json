@@ -9,16 +9,22 @@
 		"migrate-prod": "node_modules/.bin/ts-node node_modules/.bin/contentful-migration -s $SPACEID -a $ACCESSTOKEN -y -e prod",
 		"migrateprod": "dotenv npm run migrate-prod",
 		"migrate-staging": "node_modules/.bin/ts-node node_modules/.bin/contentful-migration -s $SPACEID -a $ACCESSTOKEN -y -e staging",
-		"migratestaging": "dotenv npm run migrate-staging"
+		"migratestaging": "dotenv npm run migrate-staging",
+		"migrate": "dotenv node migrate.js"
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"axios": "^0.21.1",
 		"contentful-cli": "^1.9.7",
 		"contentful-migration": "^4.5.0",
+		"debug": "^4.3.2",
 		"dotenv": "^10.0.0",
 		"dotenv-cli": "^4.0.0",
 		"ts-node": "^10.2.1",
 		"typescript": "^4.4.2"
+	},
+	"devDependencies": {
+		"@types/node": "^16.7.10"
 	}
 }

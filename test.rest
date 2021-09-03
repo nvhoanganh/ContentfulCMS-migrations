@@ -233,3 +233,46 @@ query($preview: Boolean){
 {
   "preview": false
 }
+
+
+### 
+GET https://cdn.contentful.com/spaces/{{spaceId}}/content_types?access_token={{$dotenv PRODAPI}}
+
+
+### 
+GET https://api.contentful.com/spaces/{{spaceId}}/content_types/migrationHistory?access_token={{$dotenv ACCESSTOKEN}}
+
+
+
+### 
+GET https://cdn.contentful.com/spaces/{{spaceId}}/entries/3wDRoEZ375twBqMC5XLzUh?access_token={{$dotenv PRODAPI}}
+
+
+### 
+PUT https://api.contentful.com/spaces/{{spaceId}}/entries/3wDRoEZ375twBqMC5XLzUh/published?access_token={{$dotenv ACCESSTOKEN}}
+X-Contentful-Version: 1
+
+### 
+PUT https://api.contentful.com/spaces/{{spaceId}}/entries/3wDRoEZ375twBqMC5XLzUh
+Authorization: Bearer {{$dotenv ACCESSTOKEN}}
+X-Contentful-Content-Type: migrationHistory
+X-Contentful-Version: 8
+
+{
+  "fields": {
+    "history": {
+      "en-US": ["Hello, World!"]
+    }
+  }
+}
+
+
+### 
+PUT https://api.contentful.com/spaces/{{spaceId}}/entries/3wDRoEZ375twBqMC5XLzUh/published
+Authorization: Bearer {{$dotenv ACCESSTOKEN}}
+X-Contentful-Content-Type: migrationHistory
+X-Contentful-Version: 7
+
+
+### 
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/master/entries/3wDRoEZ375twBqMC5XLzUh?access_token={{$dotenv ACCESSTOKEN}}

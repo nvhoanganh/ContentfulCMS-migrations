@@ -1,0 +1,4 @@
+
+> contentfulcmsdevops@1.0.0 migrate /Users/anthonynguyen/sources/CleanEnergy/ContentfulCMSDevops
+> dotenv node migrate.js
+
