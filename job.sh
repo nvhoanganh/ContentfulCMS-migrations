@@ -3,7 +3,7 @@
 # create branch if not exists
 if git branch --list -a | grep $1; then
     echo " 🎉 Checking out remote branch $1"
-    git checkout $1 origin/$1
+    git checkout -b $1 origin/$1
 else
     echo " 🎉 Creating new branch $1"
     git branch $1 || true
