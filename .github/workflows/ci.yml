@@ -53,8 +53,8 @@ jobs:
           npm ci
 
       - run: |
-          fileChanges=$(git diff HEAD~0 --name-only | grep contents-migrations)
-          echo "changes are '$fileChanges'"
+          git diff HEAD~0 --name-only | grep contents-migrations
+          echo Done
         env:
           ENV: dev
           SPACEID: ${{ github.event.inputs.spaceId }}
