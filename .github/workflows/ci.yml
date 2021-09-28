@@ -53,7 +53,7 @@ jobs:
           npm ci
 
       - run: |
-          ls
+          ls contents-migrations/
           git diff HEAD~1 --name-only | grep contents-migrations
           sh push-content.sh
         env:
