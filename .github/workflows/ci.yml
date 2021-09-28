@@ -54,7 +54,7 @@ jobs:
 
       - run: |
           ls contents-migrations/
-          git diff HEAD~1 --name-only | grep contents-migrations
+          git diff HEAD~0 --name-only | grep contents-migrations
           sh push-content.sh
         env:
           ENV: dev
