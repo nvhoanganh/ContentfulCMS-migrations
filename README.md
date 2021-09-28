@@ -24,12 +24,9 @@ This will:
 - run this to export and then import (we need SpaceId, Entity Id and Access token)
 ```bash
 
-FROMENV=master \
-FROMSPACEID=k9fnhvl1ymu1 \
-FROMACCESSTOKEN=CFPAT-Rr9NDqFfVBTDRgqUfqIooxxCzYdLNDB_z2kT8-RLKLI \
-TOENV=dev \
-TOSPACEID=k9fnhvl1ymu1 \
-TOACCESSTOKEN=CFPAT-Rr9NDqFfVBTDRgqUfqIooxxCzYdLNDB_z2kT8-RLKLI \
+ENV=master \
+SPACEID=k9fnhvl1ymu1 \
+ACCESSTOKEN=CFPAT-Rr9NDqFfVBTDRgqUfqIooxxCzYdLNDB_z2kT8-RLKLI \
 sh job.sh 4D1DcBWbPZKt2yBmyaWTzI
 
 ```
