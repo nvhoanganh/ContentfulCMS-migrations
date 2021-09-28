@@ -11,7 +11,7 @@ fi
 # download json for the content
 echo " 🎉 Downloading $1.json from $SPACEID-$ENV"
 
-contentful space export --space-id $SPACEID \
+node_modules/.bin/contentful space export --space-id $SPACEID \
 --environment-id $ENV \
 --mt $ACCESSTOKEN \
 --export-dir ./contents-migrations \
