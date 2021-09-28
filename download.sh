@@ -1,4 +1,4 @@
-echo "Downloading $1 from $SPACEID-$ENV" 
+echo " 🎉 Downloading $1 from $SPACEID-$ENV" 
 
 contentful space export --space-id $SPACEID \
     --environment-id $ENV \
