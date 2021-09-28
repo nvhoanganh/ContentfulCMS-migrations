@@ -17,6 +17,7 @@ on:
 
 jobs:
   download_and_create_pr:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
