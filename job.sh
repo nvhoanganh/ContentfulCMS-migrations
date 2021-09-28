@@ -1,10 +1,14 @@
-echo " 🎉 Creating new branch $1"
+
 
 # create branch if not exists
-git branch $1 || true
-
-# check out to that branch
-git checkout $1
+if git branch --list -a | grep $1; then
+    echo " 🎉 Checking out remote branch $1"
+    git checkout $1 origin/$1
+else
+    echo " 🎉 Creating new branch $1"
+    git branch $1 || true
+    git checkout $1
+fi
 
 # download json for the content
 export ENV=$FROMENV
