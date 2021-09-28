@@ -17,5 +17,12 @@ jobs:
   download_and_create_pr:
     runs-on: ubuntu-latest
     steps:
+        
       - run: |
           echo "Content ID ${{ github.event.inputs.entityId }} changed in ${{ github.event.inputs.spaceId }}"
+          echo "Check using $ACCESSTOKEN and $GITHUB_TOKEN"
+        env:
+          ENV: master
+          SPACEID: ${{ secrets.SPACEID }} 
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} 
+          ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
