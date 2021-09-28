@@ -48,7 +48,7 @@ jobs:
       ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
     steps:
       - run: |
-          echo "Deploying ${{ github.event.inputs.entityId }} to $ENV"
+          sh push-content.sh
         env:
           ENV: dev
           SPACEID: ${{ github.event.inputs.spaceId }}
