@@ -12,7 +12,7 @@ export SPACEID=$FROMSPACEID
 SOURCE_SPACEID=$FROMSPACEID
 export ACCESSTOKEN=$FROMACCESSTOKEN
 
-sh scripts/download.sh $1
+sh download.sh $1
 
 # commit
 echo "Add and Commit ./contents-migrations/$1.json file"
