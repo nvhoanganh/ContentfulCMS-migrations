@@ -53,11 +53,13 @@ jobs:
           npm ci
 
       - run: |
-          ls contents-migrations/
-          git diff HEAD~0 --name-only | grep contents-migrations
-          git branch 
-          git reflog
-          sh push-content.sh
+          fileChanges=$(git diff HEAD~0 --name-only | grep contents-migrations)
+          if [ -z "$fileChanges" ]
+          then
+              echo " ⭐️ no changes found"
+          else
+              echo " 🎉 Importing $fileChanges into $SPACEID-$ENV"
+          fi
         env:
           ENV: dev
           SPACEID: ${{ github.event.inputs.spaceId }}
