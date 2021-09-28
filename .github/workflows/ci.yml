@@ -21,6 +21,7 @@ jobs:
       - run: |
           echo "Content ID ${{ github.event.inputs.entityId }} changed in ${{ github.event.inputs.spaceId }}"
           echo "Check using $ACCESSTOKEN and $GITHUB_TOKEN"
+          gh pr list
         env:
           ENV: master
           SPACEID: ${{ secrets.SPACEID }} 
