@@ -276,3 +276,18 @@ X-Contentful-Version: 7
 
 ### 
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/master/entries/3wDRoEZ375twBqMC5XLzUh?access_token={{$dotenv ACCESSTOKEN}}
+
+
+### 
+POST https://api.github.com/repos/nvhoanganh/ContentfulCMS-migrations/actions/workflows/ci.yml/dispatches
+Content-Type: application/json
+Authorization: Bearer {{$dotenv GH_ACCESSTOKEN}}
+
+{
+  "inputs": {
+    "entityId": "4D1DcBWbPZKt2yBmyaWTzI",
+    "spaceId": "k9fnhvl1ymu1",
+    "updatedAt": "2021-09-28T01:11:40.366Z"
+  },
+  "ref": "master"
+}
