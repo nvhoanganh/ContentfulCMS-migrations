@@ -47,6 +47,11 @@ jobs:
       SPACEID: ${{ secrets.SPACEID }}
       ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
     steps:
+      - uses: actions/checkout@v2
+  
+      - run: |
+          npm ci
+
       - run: |
           sh push-content.sh
         env:
