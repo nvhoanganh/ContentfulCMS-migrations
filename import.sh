@@ -1,4 +1,4 @@
-echo "Importing $1 into $SPACEID-$ENV" 
+echo " 🎉 Importing $1 into $SPACEID-$ENV" 
 
 contentful space import --space-id $SPACEID \
     --environment-id $ENV \
