@@ -31,6 +31,8 @@ jobs:
 
       - run: |
           echo "Content ID ${{ github.event.inputs.entityId }} changed in ${{ github.event.inputs.spaceId }}"
+          ls
+          git diff HEAD~1 --name-only | grep contents-migrations
           sh create-pr.sh ${{ github.event.inputs.entityId }}
         env:
           ENV: master
