@@ -1,0 +1,9 @@
+{
+  "spaceId": "k9fnhvl1ymu1",
+  "managementToken": "CFPAT-Rr9NDqFfVBTDRgqUfqIooxxCzYdLNDB_z2kT8-RLKLI",
+  "environmentId": "dev",
+  "contentFile": "./export/export.json",
+  "skipContentModel": true,
+  "skipContentPublishing": false,
+  "errorLogFile": "/export/import-error.log"
+}
