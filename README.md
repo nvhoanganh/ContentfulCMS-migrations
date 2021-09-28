@@ -27,7 +27,7 @@ This will:
 ENV=master \
 SPACEID=k9fnhvl1ymu1 \
 ACCESSTOKEN=CFPAT-Rr9NDqFfVBTDRgqUfqIooxxCzYdLNDB_z2kT8-RLKLI \
-sh job.sh 4D1DcBWbPZKt2yBmyaWTzI
+sh create-pr.sh 4D1DcBWbPZKt2yBmyaWTzI
 
 ```
 
