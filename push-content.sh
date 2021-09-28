@@ -1,6 +1,6 @@
 echo " 🎉 Importing $1 into $SPACEID-$ENV" 
 
-contentful space import --space-id $SPACEID \
+node_modules/.bin/contentful space import --space-id $SPACEID \
     --environment-id $ENV \
     --mt $ACCESSTOKEN \
     --content-file ./contents-migrations/$1.json \
