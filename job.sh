@@ -1,13 +1,13 @@
 
 
 # create branch if not exists
-if git branch --list -a | grep $1; then
+if git branch --list -a | grep origin/$1; then
     echo " 🎉 Checking out remote branch $1"
+    git branch -d $1 || true
     git checkout -b $1 origin/$1
 else
     echo " 🎉 Creating new branch $1"
-    git branch $1 || true
-    git checkout $1
+    git checkout -b $1 || true
 fi
 
 # download json for the content
