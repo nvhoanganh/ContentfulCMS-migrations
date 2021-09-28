@@ -14,8 +14,9 @@ export ACCESSTOKEN=$FROMACCESSTOKEN
 sh scripts/download.sh $1
 
 # commit
-echo "Commit changes"
-git commit -am "Content ID $1 updated"
+echo "Add and Commit ./contents-migrations/$1.json file"
+git add ./contents-migrations/$1.json
+git commit -am "Content ID $1 changed"
 
 # create a PR
 
