@@ -56,7 +56,7 @@ jobs:
       - run: npm ci
 
       - run: |
-          git diff HEAD~1 --name-only | grep contents-migrations
+          git diff HEAD~0 --name-only
           echo Done
         env:
           ENV: dev
