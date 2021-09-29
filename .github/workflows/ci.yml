@@ -58,8 +58,7 @@ jobs:
       - run: npm ci
 
       - run: |
-          git diff HEAD~1 --name-only
-          echo Done
+          sh push-content.sh
         env:
           ENV: dev
           SPACEID: ${{ github.event.inputs.spaceId }}

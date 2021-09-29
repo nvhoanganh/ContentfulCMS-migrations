@@ -1,7 +1,7 @@
-fileChanges=$(git diff HEAD~0 --name-only | grep contents-migrations)
+fileChanges=$(git diff HEAD~1 --name-only | grep contents-migrations)
 if [ -z "$fileChanges" ]
 then
-    echo " ⭐️ no changes found"
+    echo " ⭐️ no changes found under contents-migrations folder"
 else
     echo " 🎉 Importing $fileChanges into $SPACEID-$ENV"
 
