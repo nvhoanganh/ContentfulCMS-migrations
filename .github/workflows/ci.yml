@@ -51,12 +51,14 @@ jobs:
         with:
           fetch-depth: 2
 
-      - run: git checkout HEAD^
+      - run: |
+          git checkout -b master origin/master
+          git pull
 
       - run: npm ci
 
       - run: |
-          git diff HEAD~0 --name-only
+          git diff HEAD~1 --name-only
           echo Done
         env:
           ENV: dev
