@@ -49,10 +49,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
-      - run: |
-          npm ci
+      - run: git checkout HEAD^
+
+      - run: npm ci
 
       - run: |
           git diff HEAD~1 --name-only | grep contents-migrations
