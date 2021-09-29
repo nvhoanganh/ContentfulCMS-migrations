@@ -48,7 +48,9 @@ jobs:
       ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
     steps:
       - uses: actions/checkout@v2
-  
+        with:
+          fetch-depth: 3
+
       - run: |
           npm ci
 
