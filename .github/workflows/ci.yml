@@ -38,7 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} 
           ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
 
-  push_to_dev:
+  push_to_test:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
@@ -61,5 +61,32 @@ jobs:
           sh push-content.sh
         env:
           ENV: dev
-          SPACEID: ${{ github.event.inputs.spaceId }}
+          SPACEID: ${{ secrets.SPACEID }}
+          ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
+
+  push_to_pp:
+    runs-on: ubuntu-latest
+    needs:
+      - push_to_test
+    environment:
+      name: PP
+    env:
+      SPACEID: ${{ secrets.SPACEID }}
+      ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - run: |
+          git checkout -b master2 origin/master
+          git pull
+
+      - run: npm ci
+
+      - run: |
+          sh push-content.sh
+        env:
+          ENV: dev
+          SPACEID: ${{ secrets.SPACEID }}
           ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESSTOKEN }}
