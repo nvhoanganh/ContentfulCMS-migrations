@@ -11,7 +11,7 @@
         },
         "id": "ctf-workflows-tag-o-pwr0U8zYC1MyxxerAdR",
         "type": "Tag",
-        "createdAt": "2021-09-02T13:53:19.454Z",
+        "createdAt": "2021-09-02T13:53:19.453Z",
         "updatedAt": "2021-09-28T02:36:16.175Z",
         "environment": {
           "sys": {
@@ -96,7 +96,7 @@
         "id": "4D1DcBWbPZKt2yBmyaWTzI",
         "type": "Entry",
         "createdAt": "2021-09-27T07:06:35.253Z",
-        "updatedAt": "2021-09-28T07:40:41.573Z",
+        "updatedAt": "2021-09-29T02:51:45.118Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -104,8 +104,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 51,
-        "publishedAt": "2021-09-28T07:40:41.573Z",
+        "publishedVersion": 54,
+        "publishedAt": "2021-09-29T02:51:45.118Z",
         "firstPublishedAt": "2021-09-27T23:27:11.003Z",
         "createdBy": {
           "sys": {
@@ -121,8 +121,8 @@
             "id": "0NpJ4UE8cY4OSqlQOtDjKO"
           }
         },
-        "publishedCounter": 24,
-        "version": 52,
+        "publishedCounter": 25,
+        "version": 55,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -140,7 +140,7 @@
       },
       "fields": {
         "line1": {
-          "en-US": "update via contentful UI9"
+          "en-US": "update via contentful UI 10 "
         },
         "line2": {
           "en-US": "line2"
